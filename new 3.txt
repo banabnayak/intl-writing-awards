@@ -4,3 +4,6 @@ echo Setting PATH
 set PATH=C:\Program Files\Java\jdk1.7.0_76\bin;%PATH%
 echo Display java version
 java -version
+
+
+
