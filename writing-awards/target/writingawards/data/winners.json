@@ -1,0 +1,7 @@
+var winners =[
+	{src : 'winner1_100x100.png', content: 'There is nothing like getting your work published!', name: 'Samhita Jayanth', address :'Vidya Shilp Academy, Bangalore', class:'col-md-offset-1'},
+	{src : 'winner2_100x100.png', content: 'The best platform to encourage and reward young writers.', name:'Saanvi Venkataraman', address :'Salt Lake School, Kolkata', class:''},
+	{src : 'winner3_100x100.png', content: 'Having my first story published by Scholastic is like a dream come true.', name:'Kushal Thaman', address :'DPS Chadigarh, Chandigarh', class:''},
+	{src : 'winner4_100x100.png', content: 'Scholastic Writing Awards has opened so many doors of opportunity for me.', name :'Arushi Debi Narayanan', address :'Aditya Birla World Academy, Mumbai', class:''},
+	{src : 'winner5_100x100.png', content: 'Scholastic Writing Awards has boosted my confidence and given me faith to keep writing.', name :'Mani Shankar Chowdhury', address :'DPS Chadigarh, Chandigarh',class:''}
+]

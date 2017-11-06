@@ -1,0 +1,20 @@
+<form role="form" ng-submit="submit4ResetPwd()">
+	<div class="row">
+		<div class="form-group" style="margin-left: 15px; margin-right: 15px;" ng-hide="isPRSubmitted">
+			<input type="email" class="form-control" id="email" name="email" ng-model="pwdresetdetails.email" placeholder="Parent Email" required="required">
+		</div>
+		<div class="form-group" style="margin-left: 15px; margin-right: 15px;" ng-hide="isPRSubmitted">
+			<input type="text" class="form-control" id="regno" name="regno" ng-model="pwdresetdetails.regNo" placeholder="Registration Number" required="required">
+		</div>
+		<div style="font-size: small; color:blue;height: 20px; padding-left: 20px;">{{pwdinfo}}</div>
+	</div>
+	</div>
+		<div class="modal-footer" style="border-top: none;">
+			<div class=" text-center">
+				<input type="button" class="btn btn-default  buttonDecor" value="Close" ng-click="$modalCancel()"> &nbsp;
+				<input type="submit" class="btn btn-default  buttonDecor" value="Submit" ng-hide="isPRSubmitted">
+			</div> 
+		</div>
+	</div>
+</form>
+		

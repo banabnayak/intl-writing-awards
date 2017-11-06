@@ -1,0 +1,20 @@
+#foreach( $swa in $swaTemplate )
+<br>
+Hello $swa.fullName, 
+<br><br>
+Greetings from Scholastic India!
+<br><br>
+This is a reminder e-mail.
+<br><br>
+Please log in on $swa.rankingStartDate to start ranking the stories assigned to you. Your story will be rejected if you fail to do so before $swa.rankingEndDate.
+<br><br>
+For information/query, please write to us at swa@scholastic.co.in
+<br><br>
+To be a successful writer, one has to be a good reader!
+<br><br>
+Regards,
+<br>
+Team Scholastic
+<br><br><br>
+Join us on Facebook (Scholastic India) and Twitter (@indiascholastic)
+#end

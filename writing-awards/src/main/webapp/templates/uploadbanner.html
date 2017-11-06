@@ -1,0 +1,34 @@
+<div class="row">
+	 <p style="color:red;text-align: center;margin-bottom: 20px;height: 20px;font-size: small;" >{{message}}</p> 
+</div>
+<form role="form" ng-submit="submit2UploadBanner()">
+	<div class="row">
+		<table><tr><td style="vertical-align: top;" >
+		<div class="form-group" style="margin-left: 30px; margin-right: 30px;" ng-repeat="banner in $root.banners">
+			<p style="color:black;margin-right: 20px;display: inline;text-align: right;width: 150px;">{{banner.label}}</p> 
+			<div class="text-center" style="display: inline-block">
+				<label style="font-weight: normal;padding-right: 2px;">
+				<span class="file-input btn btn-default btn-file story-upload">Browse&hellip; 
+					<input type="file" name="{{banner.name}}$index" fileread="banner.name" id="{{banner.name}}$index" class="btn btn-default" title="Upload {{banner.label}} ...">
+				</span>
+				</label>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+			<div style="height: 80px;font-style: italic;color: gray;font-size: x-small;padding-left: 30px;">
+			Please browse png files<br>
+			File size would be 705x350<br>
+			Check the banner and upload.<br>
+			Once uploaded old file will be lost.
+		</div>
+		</td><td id='viewPane' style="vertical-align: top;"></td></tr>
+		</table>
+	</div>
+	<div id="modFoot" class="modal-footer" style="border-top: none;">
+		<!--p class="helpAlign" data-container="#modFoot" data-toggle="popover" data-placement="top" data-content="HELP HELP"> help?</p-->
+		<div class=" text-center">
+			<input type="button" class="btn btn-default  buttonDecor" value="Close" ng-click="$modalCancel()"> &nbsp;		
+			<input type="submit" class="btn btn-default  buttonDecor " value="Upload">
+		</div> 
+	</div>
+</form>

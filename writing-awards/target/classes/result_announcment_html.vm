@@ -1,0 +1,18 @@
+#foreach( $swa in $swaTemplate )
+<br>
+Hello,
+<br><br>
+Greetings from Scholastic India!
+<br><br>
+Scholastic is grateful to receive an enormous response this year. We are happy to announce the results for this year. Please visit the following link to view the results: $swa.resultLink
+<br><br>
+For information/query, please write to us at swa@scholastic.co.in
+<br><br>
+To be a successful writer, one has to be a good reader!
+<br><br>
+Regards,
+<br>
+Team Scholastic
+<br><br><br>
+Join us on Facebook (Scholastic India) and Twitter (@indiascholastic)
+#end

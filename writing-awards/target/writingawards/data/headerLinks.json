@@ -1,0 +1,7 @@
+var headerLinks = [
+    {text : 'Educators', url : 'http://scholastic.co.in/en/educator'},	
+	{text : 'Parents', url : 'http://scholastic.co.in/parents'},
+	{text : 'Distributors & Retailers', url : 'http://scholastic.co.in/distributors-and-retailers'},
+	{text : 'Kids', url : 'http://scholastic.co.in/kids'},
+	{text : 'Contact Us', url : 'http://scholastic.co.in/en/contact-us'}
+];	

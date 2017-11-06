@@ -1,0 +1,11 @@
+<div class="row showContent">
+	<div class="ImageContainer col-md-12  col-sm-12 col-xs-12">
+		<h3 class="text-center borderBottom">Winners say</h3>
+		<div id="cicrImgContainer" class="text-center cicrImgContainer" ng-controller="WinnerController">
+			<div class=" col-md-2 col-xs-6 col-sm-2 {{winner.class}}" ng-repeat="winner in winners">
+				<img class="popupText imageAdjust" width="100" height="100" src="images/{{winner.src}}" data-container="#cicrImgContainer" data-html="true" data-toggle="popover" data-placement="bottom" data-content="{{winner.content}}<br/><span style='color: #000fff;font-size: 12px;'>{{winner.name}}</span> - <span style='font-size: 12px;'>{{winner.address}}</span>" />
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,86 @@
+<!-- <link rel="stylesheet" type="text/css" href="css/select/bootstrap-select.min.css">
+<script type="text/javascript" src="js/select/bootstrap-select.min.js"></script>
+ -->		
+<!-- story begin -->
+<div class="tab-content tabBg col-md-12">
+	<div id="sectionD" class="tab-pane active in">
+    	<div class="row">
+			<h3 style="margin-left: 15px;margin-right: 15px; border-bottom: 1px solid #dcd8c6;padding-bottom: 10px;">Write Your Story<label class="required">* All fields are mandatory</label></h3>
+			
+		</div>
+		<div class="row">
+			<form role="form" ng-submit="submitStory()">
+				<div class="form-group col-md-5">
+					<div class="btn-group btn-input clearfix">
+					<!-- <input type="hidden" ng-model="story.topicId"> -->
+						<select id="topicId" name="topicId" ng-model="story.topicId" value="{{story.topicId}}" class="form-control custom dropdown" required="required">
+				  			<option value="">Select A Topic ...</option>
+				  			<option ng-repeat="topic in topics | orderBy:'name'" value="{{topic.id}}">{{topic.name}}</option>  	
+				  		</select>
+			  	
+<!-- 							<input type="hidden" id="topic" name="topic" ng-model="story.topic" value="{{topic}}">
+									<button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown" required="required">
+										<span data-bind="label">Select A Topic</span>&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" style="width: 100%">
+										<li><a ng-click="selectTopic('Topic 10')">Topic 10</a></li>
+										<li><a ng-click="selectTopic('Topic 20')">Topic 20</a></li>
+										<li><a ng-click="selectTopic('Topic 30')">Topic 30</a></li>
+										<li><a ng-click="selectTopic('Topic 40')">Topic 40</a></li>
+										<li><a ng-click="selectTopic('Topic 50')">Topic 50</a></li>
+									</ul>
+									{{topicmsg}} 
+-->
+					</div>
+				</div>
+				<div class="form-group col-md-12">
+					<label for="exampleText12">Story Title</label>
+					<input type="text" class="form-control" id="title" name="title" ng-model="story.storyTitle" placeholder="Give an awsome story title" maxlength="240" required="required">
+				</div>
+				<div class="form-group col-md-12">
+					<label for="exampleText13">Story Text</label>&nbsp;&nbsp;&nbsp; <label style="font-weight: normal;" ng-hide="$root.loggedInUser.isStorySubmitted || isSubmitted"><span class="file-input btn btn-default btn-file story-upload">Choose File to  Upload&hellip; <input type="file" name="storyFile" on-read-file="showContent($fileContent, $message)"  id="storyFile" class="btn btn-default" title="Search for a file to upload a story ..."></span></label> <!--label style="font-weight: normal;"><input type="button" value="load story" ng-click="load()" id="upload" class="btn btn-default story-upload"></label--><label class="storymsg">{{message}}</label> <label class="storychars"></label>
+					<textarea style="resize: none;" class="form-control" rows="20" id="storyText" name="storyText" ng-model="story.storyText" placeolder="Write a fascinating story here..." required="required" maxlength="{{maxText}}" ng-change="validateStory()" ng-click="clickStory()" ng-readonly="$root.loggedInUser.isStorySubmitted || isSubmitted"></textarea>
+				</div>
+				<div class="clearfix"></div>
+				<div class="form-actions" style="text-align: center; margin-top: 15px;">
+					<div ng-repeat="(key,val) in alerts" class="alert {{key}} text-center" style="width: 60%;">
+	     				<div ng-repeat="msg in val">{{msg}}</div>
+	 				</div>
+				<!-- <input type="hidden" id="id" name="id" ng-model="story.id"> -->
+				    <input type="submit" ng-hide="isSubmitted" class="btn btn-default  buttonDecor" style="margin-right: 15px;" ng-click="setAction('Save')" value="Save">
+					<input type="submit" ng-hide="isSubmitted" class="btn btn-info" style="border-radius: 30px; padding-left: 20px; padding-right: 20px;" ng-click="setAction('Submit')" value="Submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--story end -->	
+
+<script type="text/javascript">
+<!--
+/*  $(document).ready(function(){
+	$("#storyText").bind({
+        copy : function(){
+            $('.storymsg').text('copy behaviour detected!');
+        },
+        paste : function(){
+            $('.storymsg').text('paste behaviour detected!');
+        },
+        cut : function(){
+            $('.storymsg').text('cut behaviour detected!');
+        }
+    });
+	$('#storyText').bind('paste', function(e){ 
+		var data = e.originalEvent.clipboardData.getData('Text');
+		if (data.length > 10) {
+			$('.storymsg').text('You are exceeding maximum story length of ' + MAXSTORYCHARS + ' chars');		
+			return false;
+		} else {
+			$('.storymsg').text('');		
+			return true;
+		}	
+	});	    	
+}); */ 
+//-->
+</script> 
+

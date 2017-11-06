@@ -1,0 +1,198 @@
+<!-- registration begin -->    
+<div class="row">
+    <h1 class="col-md-12" style="margin-top: 0; color: #626262; margin-bottom: 10px;">Registration</h1>	
+    <h3 class="col-md-12" style="margin-top: 0;">{{aboutSWA.question}}</h3>
+</div>
+<div class="row">
+    <div class="col-md-12" style="margin-bottom: 15px;">
+        <img style='float:left;width:196px;height:120px; margin-right:30px;' src="images/Why_register.png" />
+        <ul class="list-group pull-left col-md-8 regTextP">				
+            <li ng-repeat="ans in aboutSWA.answers"  style="padding-bottom: 6px;"><a href=""><span>{{ans.text}}</span></a></
+        </ul>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="RegisterContainer col-md-12">
+    <div class="row">
+        <h3 style="margin-left: 15px;margin-right: 15px; border-bottom: 1px solid #dcd8c6;padding-bottom: 10px;">Personal Information<label class="required">* All fields are mandatory</label></h3>
+
+    </div>
+    <div class="row">
+        <form role="form" ng-submit="enrollStudent()">
+            <div class="form-group col-md-5">
+                <label for="exampleText1">Your Full Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullName" ng-model="user.student.fullName" placeholder=" Full Name" maxlength="60" required="required">
+            </div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleInput">Your Age</label>
+                <div class="">
+                    <div class="panel panel-default">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="number" class="form-control" id="age" name="age" ng-model="user.student.age"  min="1" maxlength="2" placeholder=" Age" required="required">
+
+                                <!-- 					                 <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                                                                           <span data-bind="label">Select Age</span>&nbsp;<span class="caret"></span>
+                                                                                         </button>
+                                                                                         <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                                                                           <li><a href="#">10</a></li>
+                                                                                           <li><a href="#">20</a></li>
+                                                                                           <li><a href="#">30</a></li>
+                                                                                           <li><a href="#">40</a></li>
+                                                                                           <li><a href="#">50</a></li>
+                                                                                         </ul> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-md-5">
+                <label for="exampleInput2">Your Class</label>
+                <div class="">
+                    <div class="panel panel-default">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type='hidden' ng-model="user.student.studentClass">
+                                <select id="studentClass" name="studentClass" ng-model="studentClass" class="form-control custom dropdown" ng-options="cls as cls.text group by cls.group.text for cls in classes | orderBy:['group.text','text']" required="required" ng-change="setGroup(studentClass)"  required="required">
+                                    <option value="">Select A Class ...</option>
+                                </select>
+
+                                <!-- <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                       <span data-bind="label">Select Class</span>&nbsp;<span class="caret"></span>
+                                     </button>
+                                     <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                       <li><a href="#">1</a></li>
+                                       <li><a href="#">2</a></li>
+                                       <li><a href="#">3</a></li>
+                                       <li><a href="#">4</a></li>
+                                       <li><a href="#">5</a></li>
+                                     </ul> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleInputEmail2">Your Group</label>
+                <div class="">
+                    <div class="panel panel-default">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="text" class="form-control" id="studentGroup" name="studentGroup" ng-model="studentGroup" placeholder=" Group Name" readonly="readonly" required="required">
+                                <input type='hidden' ng-model="user.student.studentGroup">
+                                <!-- 					                 <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                                                                           <span data-bind="label">Select Group</span>&nbsp;<span class="caret"></span>
+                                                                                         </button>
+                                                                                         <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                                                                           <li><a href="#">Group A</a></li>
+                                                                                           <li><a href="#">Group B</a></li>
+                                                                                           <li><a href="#">Group C</a></li>
+                                                                                           <li><a href="#">Group D</a></li>
+                                                                                           <li><a href="#">Group E</a></li>
+                                                                                         </ul>
+                                -->					               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 style="margin-left: 15px;margin-right: 15px; border-bottom: 1px solid #dcd8c6;padding-bottom: 10px;">Your Parent Information</h3>
+            <div class="form-group col-md-12">
+                <label for="exampleText2">Parent Name</label>
+                <input type="text" class="form-control" id="parentname" name="parentname" ng-model="user.student.parentName" maxlength="200" placeholder=" Parent Name" required="required">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="exampleEmail">Parent Email</label>
+                <input type="email" class="form-control" id="parentemail" name="parentemail" ng-model="user.student.parentEmail" maxlength="200" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" placeholder=" Parent Email" required="required">
+            </div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleNum">Parent Phone Number</label>
+                <input type="tel" pattern="[^a-z]*" class="form-control" id="parentphone" name="parentphone" ng-model="user.student.parentPhone"  placeholder=" Parent Phone Number" min="0" maxlength="15" required="required">
+            </div>
+            <h3 style="margin-left: 15px;margin-right: 15px; border-bottom: 1px solid #dcd8c6;padding-bottom: 10px;">School Information</h3>
+            <div class="form-group col-md-12">
+                <label for="exampleText3">School Name</label>
+
+                <!-- 	<div angucomplete-alt id="ex1" placeholder="Search countries" pause="100" selected-object="selectedCountry" local-data="schools" search-fields="name" title-field="name" minlength="1" input-class="form-control" match-class="highlight"> -->
+                <input type="hidden" ng-model="user.school.name">
+                <input type="text" class="form-control" typeahead-on-select='onSelectPart($item, $model, $label)' 
+                       id="schoolname" name="schoolname" ng-model="selectedSchool" ng-change="setSchoolName()"
+                       placeholder=" Full Name of School" required="required" typeahead="s as s.name +', ' + s.address +', ' + s.city+', ' + s.state+', ' + s.pincode for s in schools | filter:$viewValue | orderBy:['name','address','state','city'] | limitTo:10" maxlength="250">
+
+                <!-- 	         <input type="text" class="form-control" typeahead-on-select='onSelectPart($item, $model, $label)' id="schoolname" name="schoolname" ng-model="selectedSchool" placeholder=" Full Name of School" required="required" typeahead="s as s.name for schools in filterSchools($viewValue)">-->    
+
+                <!--  			<input type="text" ng-change="populateSchool()" class="form-control" type="search" list="schools" autocomplete="on" id="schoolname" name="schoolname" ng-model="user.school.name" placeholder=" Full Name of School" required="required">
+                                                <datalist id="schools">
+                                                        <option ng-repeat="school in schools" data-id="{{school.id}}" ng-click="populateSchool($index)" label="{{school.name}}" value="{{school.name}}">{{school.name}}</option>
+                                                </datalist>
+                --> 				
+                <!-- <input type="text" auto-complete ui-items="schools" ng-model="user.school.name" class="form-control" id="schoolname" name="schoolname" placeholder=" Full Name of School" required="required"> -->
+                <!-- <input type="text" class="form-control" id="schoolname" name="schoolname" ng-model="user.school.name" placeholder=" Full Name of School" required="required"> -->
+            </div>
+            <div class="form-group col-md-5">
+                <label for="exampleText4">School Address</label>
+                <input type="text" class="form-control" id="schooladdress" name="schooladdress" ng-model="user.school.address" placeholder=" School Address" maxlength="250" required="required">
+            </div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleText6">State/Union Territory</label>
+                <select id="schoolstate" name="schoolstate" ng-change="getCities()"  ng-model="user.school.state" class="form-control custom dropdown" required="required">
+                    <option value="">Select State/Union Territory ...</option>
+                    <option ng-repeat="st in states" value="{{st.stateName| lowercase}}">{{st.stateName}}</option>
+                </select>
+
+            </div>
+            <div class="form-group col-md-5">
+                <label for="exampleText5">City</label>
+                <select id="schoolcity" name="schoolcity"  ng-model="user.school.city" class="form-control custom dropdown" required="required">
+                    <option value="">Select City</option>
+                    <option ng-repeat="city in cities" value="{{city.cityName| lowercase}}">{{city.cityName}}</option>
+                </select>
+                <!--			<input type="text" class="form-control" id="schoolcity" name="schoolcity" ng-model="user.school.city" placeholder=" City" required="required" maxlength="40">-->
+
+                <!-- 			<input type="text" class="form-control" id="schoolstate" name="schoolstate" ng-model="user.school.state" placeholder=" State" required="required" maxlength="40">
+                -->		</div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleText7">Pincode</label>
+                <input type="number" class="form-control" id="pincode" name="pincode" ng-model="user.school.pincode" min="6" maxlength="6" placeholder=" Pincode" required="required">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="exampleText8">Principal Name</label>
+                <input type="text" class="form-control" id="principalname" name="principalname" ng-model="user.school.principalName" placeholder=" Principal Name" required="required" maxlength="200">
+            </div>
+            <div class="form-group col-md-5 col-md-offset-2">
+                <label for="exampleText9">Principal Email Id</label>
+                <input type="email" class="form-control" id="principalemail" name="principalemail" ng-model="user.school.principalEmail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" placeholder=" Principal Email" maxlength="200" required="required">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="exampleText10">School Phone Number</label>
+                <input type="tel" pattern="[^a-z]*" class="form-control" id="schoolphone" name="schoolphone" ng-model="user.school.phone" placeholder=" School Phone Number"  maxlength="15" required="required">
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-md-5">
+                <label>Where did you come to know about Scholastic Writing Awards?</label>
+
+                <ul style="list-style: none; margin: 0; padding: 0;">
+                    <li ng-repeat="source in allsources">
+                        <label style="font-weight: normal;">
+                            <input type="radio" id="refferalsources" name="refferalsources" ng-change="selectOtherSource()"  ng-model="user.student.refferalSources" value="{{source}}" style="box-shadow: none;" required />
+                            {{source}}
+                        </label>
+                    </li>
+                </ul>
+                <input type="text" class="form-control" ng-model="refother" name="refother" ng-show="isRefOtherSelected" maxlength="250" ng-required='isRefOtherSelected'>
+                <small ng-show="isRefOtherSelected">(maximum 250 characters are allowed)</small>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-actions" style="text-align: center; margin-top: 15px;">
+                <div ng-repeat="(key,val) in alerts" class="alert {{key}} text-center" style="width: 60%;">
+                    <div ng-repeat="msg in val">{{msg}}</div>
+                </div>
+                <input type="reset" ng-hide="isSubmitted" class="btn btn-default btn-primary text-center " style="border-radius: 30px; padding-left: 20px; padding-right: 20px;" value="Reset">
+                <input type="submit" ng-hide="isSubmitted" class="btn btn-default text-center buttonDecor" style="margin-right: 15px;" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+<!-- registration end -->

@@ -1,0 +1,270 @@
+<div class="clearfix"></div>
+<div class="row">
+    <div class="RegisterContainer col-md-12">
+        <div class="row">
+            <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Competition Calendar</h3>
+        </div>			
+        <div class="col-md-4 col-sm-6 calendarContent" style="width: 31.90%;" ng-repeat="task in tasks" tooltip="{{task.tooltip}}">
+            <span class="pull-right glyphicon glyphicon-remove closeIconPos" style="vertical-align: top;" ng-show="task.closeBtn" ng-click="deleteTask($index)"></span>
+            <h6 style="font-weight: bold; color: #1d72a6; font-size: 13px;" class="text-center">{{task.description}}</h6>
+            <p class="text-center" ng-hide="task.closeBtn" ng-click="openTaskDialog($index)" style="cursor: pointer;">{{task.duration}} <span class="glyphicon glyphicon-pencil pull-right"></span></p>
+            <p class="text-center" ng-show="task.closeBtn">{{task.duration}}</p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-actions" style="text-align: center; margin-top: 15px;">
+            <button class="btn btn-default  buttonDecor" ng-click="openTaskDialog(-1)">ADD TASK</button>
+        </div>
+
+        <div class="row">
+            <h3 style="border-bottom: 1px solid #eee; margin: 30px 15px; padding: 10px 0;">Topics</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <form role="form" ng-submit="addTopic()">
+                <div class="form-group col-md-5">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Add a new Topic" ng-model="topic.topicName">
+                    <msg>{{topicmsg}}</msg>
+                </div>
+                <div class="form-group col-md-5">
+                    <div class="">
+                        <div class="panel panel-default" style="margin-bottom: 0px;">
+                            <div class="">
+                                <div class="btn-group btn-input clearfix">
+                                    <input type="hidden" ng-model="topic.groupId"  id="id" name="id">
+                                    <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                        <span id="grp" data-bind="label">Select Group</span>&nbsp;<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                        <li ng-repeat="g in groups"><a ng-click="setGroup($index)">{{g.name}}</a></li>
+                                    </ul>										
+                                </div>																
+                            </div>
+                        </div>
+                        
+                        <msg>{{groupmsg}}</msg>
+                    </div>
+                </div>
+                <div class="form-actions col-md-2">
+                    <input type="submit" class="btn btn-default buttonDecor pull-right" value="ADD"></button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-5" ng-repeat="tpic in topics">
+                <div class="selectedGrp">
+                    <p style="font-weight: bold;margin-top: 10px; display: inline-block" tooltip="{{tpic.tooltip}}" >{{tpic.name}}</p>
+                    <span class="pull-right glyphicon glyphicon-remove closeIconPos" ng-click="deleteTopic($index)"></span>
+                    <span class="pull-right" style="color:#626262;font-size: 12px;
+                          margin-top: 12px;">{{tpic.group}}</span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="ht-details">
+        <div class="row">
+            <h3 style="border-bottom: 1px solid #eee; margin: 0 15px 30px 15px; padding: 10px 0;">Top Stories</h3>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-5">
+                <div class="">
+                    <div class="panel panel-default" style="margin-bottom: 0px;">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="hidden" ng-model="groupId"  id="groupId" name="groupId">
+                                <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                    <span id="grp" data-bind="label">Select Group</span>&nbsp;<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                    <li ng-repeat="g in groups"><a ng-click="setStoryExportGroup($index)">{{g.name}}</a></li>
+                                </ul>										
+                            </div>																
+                        </div>
+                    </div>
+                    <msg>{{storygroupmsg}}</msg>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <div class="">
+                    <div class="panel panel-default" style="margin-bottom: 0px;">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="hidden" ng-model="noOfStory"  id="noOfStory" name="noOfStory">
+                                <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                    <span data-bind="label">Select Top Stories</span>&nbsp;<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                    <li ng-repeat="topStory in topStories"><a ng-click="setNoOfStory(topStory.topStories)">Top {{topStory.topStories}} Stories</a></li>
+                                </ul>										
+                            </div>
+                        </div>
+                    </div>
+                    <msg>{{storycountmsg}} </msg>
+                </div>
+            </div>
+
+            <div class="form-actions col-md-2">
+                <button class="btn btn-default buttonDecor pull-right" ng-click="exportAsPdf()">Export as PDF</button>
+            </div>
+        </div>
+        </div>
+        <br><br>
+        <div class="ht-details">
+        <div class="row">
+            <h3 style="border-bottom: 1px solid #eee; margin: 0 15px 30px 15px; padding: 10px 0;">Top Participants</h3>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-5">
+                <div class="">
+                    <div class="panel panel-default" style="margin-bottom: 0px;">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="hidden" ng-model="participantsgroupId"  id="participantsgroupId" name="participantsgroupId">
+                                <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                    <span id="grp" data-bind="label">Select Group</span>&nbsp;<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                    <li ng-repeat="g in groups"><a ng-click="setParticipantsExportGroup($index)">{{g.name}}</a></li>
+                                </ul>										
+                            </div>																
+                        </div>
+                    </div>
+                    <msg>{{participantsgroupmsg}}</msg>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <div class="">
+                    <div class="panel panel-default" style="margin-bottom: 0px;">
+                        <div class="">
+                            <div class="btn-group btn-input clearfix">
+                                <input type="hidden" ng-model="noOfParticipants"  id="noOfParticipants" name="noOfParticipants">
+                                <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                    <span data-bind="label">Select Top Participants</span>&nbsp;<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                    <li ng-repeat="topParticipant in topParticipants"><a ng-click="setNoOfParticipants(topParticipant.topParticipants)">Top {{topParticipant.topParticipants}} Participants</a></li>
+                                </ul>										
+                            </div>
+                        </div>
+                    </div>
+                    <msg>{{participantscountmsg}} </msg>
+                </div>
+            </div>
+
+            <div class="form-actions col-md-2">
+                <button class="btn btn-default buttonDecor pull-right" ng-click="participantsexportData()">Export Data</button>
+            </div>
+        </div>
+        </div>
+        <!-- 	<div class="row">
+                        <div class="form-group col-md-5 col-md-offset-2">
+                                <div class="">
+                                        <div class="panel panel-default" style="margin-bottom: 0px;">
+                                                <div class="">
+                                                        <div class="btn-group btn-input clearfix">
+                                                                <input type="hidden" ng-model="noOfStory"  id="noOfStory" name="noOfStory">
+                                                                <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                                                                        <span data-bind="label">Select Top Stories</span>&nbsp;<span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                                                        <li ng-repeat="topStory in topStories"><a ng-click="setNoOfStory(topStory.topStories)">Top {{topStory.topStories}} Stories</a></li>
+                                                                        <li><a ng-click="setNoOfStory(50)">Top 50 Stories</a></li>
+                                                                        <li><a ng-click="setNoOfStory(100)">Top 100 Stories</a></li>
+                                                                </ul>										
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <msg>{{countmsg}} </msg>
+                                </div>
+                        </div>
+                        <button class="btn btn-default   buttonDecor" style="margin-right: 10px;" ng-click="exportAsPdf()">Export as PDF</button>
+                </div>
+        -->	
+        <div class="row">
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Complete Registration Details</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportStdents()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{studentexpmsg}} </msg>
+                </div>
+            </div>
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">All Schools Data</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportAllSchoolData()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{allschooldataexpmsg}} </msg>
+                </div>
+            </div>            
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Network Schools that have Participated</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportSchoolParticipated()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{schoolparticipatedexpmsg}} </msg>
+                </div>
+            </div>
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Network Schools that have not Participated</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportSchoolNotParticipated()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{schoolnotparticipatedexpmsg}} </msg>
+                </div>
+            </div>
+			<div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Out of Network Schools</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportnonNetworkSchool()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{nonnetworkschoolexpmsg}} </msg>
+                </div>
+            </div>
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Complete Submission Details</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="exportSubmissionDetails()">Export Data</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-actions" style="padding: 0 0 0 15px;">
+                    <msg>{{submissiondetailsexpmsg}} </msg>
+                </div>
+            </div>
+
+            <div class="col-md-6 ht-details">
+                <h3 style="border-bottom: 1px solid #eee; margin: 15px; padding: 10px 0;">Edit Banner</h3>
+                <div class="clearfix"></div>
+                <div class="form-actions">
+                    <button id="uploadModal" class="btn btn-default buttonDecor" style="margin: 0 0 0 15px;" ng-click="uploadBanner()">Upload Banner</button>
+                </div>
+            </div>			
+        </div>
+        <!-- 			
+                <div class="row">
+                        <h3 class="text-center" style="margin-left: 15px; margin-right:15px; border-bottom: 1px solid #dcd8c6;padding-bottom: 10px; margin-bottom: 20px">Students and Schools</h3>
+                </div>
+                <div class="row">
+                <div class="form-actions text-center">
+                        <button class="btn btn-default   buttonDecor" style="margin-right: 10px;" ng-click="exportStdents()">Export all Students Data</button>
+                </div> 
+        -->
+    </div>
+</div>

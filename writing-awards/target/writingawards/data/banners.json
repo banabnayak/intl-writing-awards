@@ -1,0 +1,12 @@
+var uploadBanners = [
+    {label : 'SWA logo', name : 'logoFile', saveAs : 'SWA_Logo.png'},
+    {label : 'Banner 1 ', name : 'banner1File', saveAs : 'banner_1.png'},
+    {label : 'Banner 2 ', name : 'banner2File', saveAs : 'banner_2.png'},
+    {label : 'Banner 3 ', name : 'banner3File', saveAs : 'banner_3.png'}
+];
+
+var viewBanners = [
+    {label : 'Banner 1', content : '', image : 'banner_1.png'},
+    {label : 'Banner 2', content : '', image : 'banner_2.png'},
+    {label : 'Banner 3', content : '', image : 'banner_3.png'}
+];

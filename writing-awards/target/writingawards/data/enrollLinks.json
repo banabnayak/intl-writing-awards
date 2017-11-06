@@ -1,0 +1,8 @@
+var aboutSWA = {question : 'Four good reasons to participate in the Scholastic Writing Awards.',
+	answers : [
+	   {text : 'The largest platform for young writers.'},
+	   {text : 'An opportunity to be published by Scholastic.'},
+	   {text : 'Gives you a chance to have renowned authors review your work.'},
+	   {text : 'Helps you kick start a career as an author.'}
+	 ]		
+};

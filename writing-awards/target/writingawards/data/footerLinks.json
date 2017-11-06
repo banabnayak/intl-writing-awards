@@ -1,0 +1,41 @@
+var footerLinks = [
+	{header : 'Scholastic Global Websites', class:'marginleftnone',  
+		links : [
+			{text : 'Scholastic Asian Book Award', url : 'http://scholasticbookaward.asia/'},	
+		    {text : 'Access the US Website', url : 'http://www.scholastic.com/home/'}
+		]
+	},
+	{header : 'Scholastic India', class:'', 
+		links : [
+			{text : 'Educators', url : 'http://scholastic.co.in/en/educator'},	
+	        {text : 'Parents', url : 'http://scholastic.co.in/parents'},
+	        {text : 'Distributors and Retailers', url : 'http://scholastic.co.in/distributors-and-retailers'},
+	        {text : 'Scholastic Characters', url : 'http://scholastic.co.in/characters'},
+	        {text : 'Scholastic NOVA', url : 'http://scholastic.co.in/nova'},
+	        {text : 'Scholastic Authors', url : 'http://scholastic.co.in/authors'},
+	        {text : 'Manuscript Guidelines', url : 'http://scholastic.co.in/manuscript-guidelines'},
+	        {text : 'About Us', url : 'http://scholastic.co.in/about'}
+		]
+	},
+	{header : 'Key Solutions', class:'', 
+		links : [
+			{text : 'Book Clubs', url : 'http://scholastic.co.in/book-clubs'},	
+	        {text : 'Book Fairs', url : 'http://scholastic.co.in/book-fairs'},
+	        {text : 'Alpha Maths', url : 'http://scholastic.co.in/alpha-maths'},
+	        {text : 'Scholastic Active English', url : 'http://scholastic.co.in/scholastic-active-english'}
+		]
+	},
+	{header : 'Need Help?', class:'', 
+		links : [
+			{text : 'Careers', url : 'http://scholastic.co.in/articles/career-opportunities'},
+			{text : 'Tel: 0124-4842800', url : ''},
+			{text : 'Email:  contact@scholastic.co.in', url : 'mailto:contact@scholastic.co.in'},
+		    {text : 'Follow us on : ', url : '', icons : [
+		    		{src : 'Social Site Icon Facebook.jpg', url : 'http://www.facebook.com/pages/Scholastic-India/135606203179604'},
+		    		{src : 'Social Site Icon Twitter.jpg', url : 'https://twitter.com/IndiaScholastic'},
+		    		{src : 'Social Site Icon Wordpress.png', url : 'http://scholasticindiabooks.wordpress.com'} 
+		    	]
+		    }
+		]
+	}	
+];

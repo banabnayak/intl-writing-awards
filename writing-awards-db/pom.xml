@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.test.writing-awards</groupId>
+		<artifactId>writing-awards-parent</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.test.writing-awards</groupId>
+	<artifactId>writing-awards-db</artifactId>
+	<name>writing-awards-db</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mybatis.maven</groupId>
+				<artifactId>migrations-maven-plugin</artifactId>
+				<version>1.1.2</version>
+
+				<configuration>
+					<repository>src/main/resources/db/</repository>
+					<output>dist/migration-name.sql</output>
+				</configuration>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.28</version>
+					</dependency>
+				</dependencies>
+
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

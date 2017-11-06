@@ -1,0 +1,39 @@
+<form role="form" ng-submit="submit4NewTask()">
+ 	<div class="row">
+		<div class="form-group" style="margin-left: 15px; margin-right: 15px;">
+			<input type="text" class="form-control" id="name" name="name" ng-model="newtask.description" placeholder="New Task" required="required"  ng-readonly="readOnly">
+		</div>
+		<div class="clearfix"></div>			
+		<div class="form-group" style="margin-left: 15px; margin-right: 15px;">
+            <p class="input-group" style="margin-bottom: 0px;">
+                <input type="text" id="startDate" name="startDate" min-date="bounds.end.minDate" max-date="bounds.end.maxDate" ng-model="newtask.startDate" class="form-control" datepicker-popup="{{format}}" readonly="readonly" datepicker-options="dateOptions" date-type="string" close-text="Close" is-open="$parent.startOpened" required="required"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event, true)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+            <span class="taskdt">{{taskStartDate}}&nbsp;</span>
+			<!-- <input type="text" class="form-control" id="startdate" name="startdate" ng-model="newtask.startdate" placeholder="Task start date" required="required"> -->
+		</div>
+		<div class="clearfix"></div>			
+ 		<div class="form-group" style="margin-left: 15px; margin-right: 15px;">
+            <p class="input-group" style="margin-bottom: 0px;">
+              <input type="text" id="endDate" name="endDate" min-date="bounds.end.minDate" max-date="bounds.end.maxDate" ng-model="newtask.endDate" class="form-control" datepicker-popup="{{format}}" readonly="readonly" datepicker-options="dateOptions" close-text="Close" is-open="$parent.endOpened" required="required"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event, false)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+            <span class="taskdt">{{taskEndDate}}&nbsp;</span>
+			<!-- <input type="text" class="form-control" id="enddate" name="enddate" ng-model="newtask.enddate" placeholder="Task end date" required="required"> -->
+		</div>
+ 		<div class="clearfix"></div>			
+ 		<div class="modal-footer" style="border-top: 1px solid gray;margin-top: 0px;">
+ 				<div class=" text-center" style="border-top: none;margin-top: 0px;">
+					<input type="button" class="btn btn-default  buttonDecor" value="Close" ng-click="$modalCancel()"> &nbsp;
+					<input type="submit" class="btn btn-default  buttonDecor" value="Submit">
+				</div> 
+<!-- 			<div class=" text-right">
+				<input type="submit" class="btn btn-default  buttonDecor" value="Submit" ng-click="submit4NewTask()">
+			</div> -->
+ 		</div> 
+	</div>		
+</form>

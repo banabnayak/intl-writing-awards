@@ -1,0 +1,94 @@
+var APP = {
+	RESOURCES : {ADMIN : 'admin', PUBLIC : 'public', STUDENT : 'student'}, 
+	TOKEN : {PRIVATE : 'SWA PRIVATE:NONE', PUBLIC : 'SWA PUBLIC:ALL'}, 
+	ROLES : {ADMIN : 'Admin', STUDENT : 'Student'}
+};
+
+var ERROR = {
+	'0' : 'Cross domain issue', '401' : 'Authentication failed! Please try again...', 
+	'402' : 'Unauthorized access','403' : 'Session timeout', '404' : 'Resource not found', 
+	'405' : 'Invalid request', '406' : 'Unexpected error', '500' : ''
+};
+		
+var MAXSTORYCHARS = 40000;
+var COOKIEAGE = 1;
+
+var QUESTIONS = {
+	ONE : '1.How interesting is this story or how much do you like this story?',
+	TWO : '2.How good/appropriate is the title?',
+	THREE: '3.How good/perfect is the ending?',
+	FOUR : '4.If you have ten friends, with how many of them would you want to share this story?'
+};
+			
+var MESSAGES = {
+	ENROLLMENT_CONFIRMATION : 'Information cannot be changed once it is submitted<br><br>Please Confirm to continue',
+	ENROLLMENT_SUCCESS : 'Registration successful.<br>Login details has been sent to your parent\'s email ID.', 
+	ENROLLMENT_FAILED : 'Registration failed! Please try again.',
+	AUTH_FAILED : 'Authentication failed! Please try again.',
+	FORGOT_PWD_SUCCESS : 'Password has been sent to the provided email ID.',
+	FORGOT_PWD_FAILED : 'Error while sending password to parent.',
+	FORGOT_PWD_ERROR : 'Error while sending password to parent.',
+	FORGOT_PWD_ALREADY_SENT : 'Request has been already sent to your parent',
+	STORY_SUBMISSION_CONFIRMATION : '<p>The story cannot be modified once it is submitted. You can save to edit later.<br><br>Please confirm to proceed.</p>',
+	REVIEW_STROY_SUCCESS : 'Thank you for reviewing the story.',
+	TOPIC_DELETE_WORNING : 'Topic is in use. Cannot be deleted.',
+	TASK_NOT_DELETED : 'Task is not deleted',
+	EXPORT_TOP_STORIES_INFO : 'Please select no of top stories',
+	EXPORT_GROUP_INFO : 'Please select group',
+	TOP_STORIES_EXPORT_NO_DATA : 'No data found to process export',
+        EXPORT_TOP_PARTICIPANTS_INFO : 'Please select no of top participants',
+	STUDENT_EXPORT_PROCESSING : 'Student export processing...',
+	STUDENT_EXPORT_PROCESSED : 'Student export request processed',
+	STUDENT_EXPORT_NOT_FOUND : 'No data found to process export',
+	STUDENT_EXPORT_NOT_PROCESSED : 'Student export request not processed',
+        
+        ALL_SCHOOL_DATA_EXPORT_PROCESSING : 'All schools data export processing...',
+	ALL_SCHOOL_DATA_EXPORT_PROCESSED : 'All schools data export request processed',
+	ALL_SCHOOL_DATA_EXPORT_NOT_FOUND : 'No data found to process export',
+	ALL_SCHOOL_DATA_EXPORT_NOT_PROCESSED : 'All schools data export request not processed',
+        
+        NETWORK_SCHOOL_PARTICIPATED_EXPORT_PROCESSING : 'Network schools participated export processing...',
+	NETWORK_SCHOOL_PARTICIPATED_EXPORT_PROCESSED : 'Network schools participated export request processed',
+	NETWORK_SCHOOL_PARTICIPATED_EXPORT_NOT_FOUND : 'No data found to process export',
+	NETWORK_SCHOOL_PARTICIPATED_EXPORT_NOT_PROCESSED : 'Network schools participated export request not processed',
+        
+        NETWORK_SCHOOL_NOT_PARTICIPATED_EXPORT_PROCESSING : 'Network schools not participated export processing...',
+	NETWORK_SCHOOL_NOT_PARTICIPATED_EXPORT_PROCESSED : 'Network schools not participated export request processed',
+	NETWORK_SCHOOL_NOT_PARTICIPATED_EXPORT_NOT_FOUND : 'No data found to process export',
+	NETWORK_SCHOOL_NOT_PARTICIPATED_EXPORT_NOT_PROCESSED : 'Network schools not participated export request not processed',
+        
+	OUT_OF_NETWORK_SCHOOL_EXPORT_PROCESSING : 'Out of network school export processing...',
+	OUT_OF_NETWORK_SCHOOL_EXPORT_PROCESSED : 'Out of network school export request processed',
+	OUT_OF_NETWORK_SCHOOL_EXPORT_NOT_FOUND : 'No data found to process export',
+	OUT_OF_NETWORK_SCHOOL_EXPORT_NOT_PROCESSED : 'Out of network school export request not processed',
+
+        COMPLETE_SUBMISSION_DETAILS_EXPORT_PROCESSING : 'Complete submission details export processing...',
+	COMPLETE_SUBMISSION_DETAILS_EXPORT_PROCESSED : 'Complete submission details export request processed',
+	COMPLETE_SUBMISSION_DETAILS_EXPORT_NOT_FOUND : 'No data found to process export',
+	COMPLETE_SUBMISSION_DETAILS_EXPORT_NOT_PROCESSED : 'Complete submission details export request not processed',
+        
+	BANNER_UPLOAD_PROGRESS : 'Upload in progress...',
+	BANNER_UPLOAD_SUCCESS : 'Banner uploaded successfully!',
+	BANNER_UPLOAD_ERROR : 'Error while uploading banner',
+	BANNER_UPLOAD_PNG_INFO : 'Only png file can be uploaded',
+	KEYWORD_INFO : 'Please enter search keyword',
+	TOPIC_DUPLICATE : 'Topic already exists',
+	STORY_MAX_CHARS :'You are exceeding maximum story length',
+	STORY_UPLOAD_MAX_CHARS : 'Your upload data exceeds maximum story length',
+	TASK_DELETE_CONFIRM : 'Do you want to delete the selected task?',
+	TOPIC_INFO : 'Please enter topic',
+	TOPIC_GROUP_INFO : 'Please select group',
+	TOPIC_DELETE_CONFIRM : 'Do you want to delete the selected topic?'
+};
+
+var DIALOGS = {
+	ENROLLMENT : {TEMPLATE : null, TITLE : 'Confirm Data Submission'},
+	FORGOTPWD : {TEMPLATE : 'templates/resetpwd.html', TITLE : 'Forgot Password'},
+	STORY : {TEMPLATE : null, TITLE : 'Confirm Story Submission'},
+	REVIEW : {TEMPLATE : 'templates/comment.html', TITLE : 'Story Review'},
+	TASK : {TEMPLATE : 'templates/task.html', TITLE : {ADD : 'Add Task', EDIT : 'Edit Task'}},
+	UPLOAD : {TEMPLATE : 'templates/uploadbanner.html', TITLE : 'Upload Banner Images'},
+	SEARCH : {TEMPLATE : 'http://scholastic.co.in/en/search/node/', TITLE : 'Scholastic India Search'}
+};
+
+var ALLSOURCES = ['Poster in School', 'Teachers', 'Friends and Family', 'Facebook/Twitter', 'Others'];

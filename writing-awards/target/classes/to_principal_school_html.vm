@@ -1,0 +1,18 @@
+ #foreach( $swa in $swaTemplate )
+<br>
+Hello,
+<br><br>
+Greetings from Scholastic India!
+<br><br>
+Thank you for participating in the Scholastic Writing Awards 2015. It was fantastic to see the immense enthusiasm shown by the students of $swa.schoolName school. 
+<br><br>
+We will keep you updated. 
+<br><br>
+For information/query, please write to us at swa@scholastic.co.in
+<br><br>
+Regards,
+<br>
+Team Scholastic
+<br><br><br>
+Join us on Facebook (Scholastic India) and Twitter (@indiascholastic)
+#end

@@ -1,0 +1,22 @@
+#foreach( $swa in $swaTemplate )
+<br>
+Hi $swa.fullName,
+<br><br>
+Thank you for registering for Scholastic Writing Awards.
+<br><br>
+An account has been created for you with the following account details:
+<br><br>
+Registration Number: $swa.regNo
+<br>
+User ID: $swa.email
+<br>
+Password: $swa.password
+<br><br>
+Please use these account details the next time you sign in to Scholastic Writing Awards.
+<br><br>
+Thank you,
+<br>
+Team Scholastic
+<br><br><br>
+Join us on Facebook (Scholastic India) and Twitter (@indiascholastic)
+#end

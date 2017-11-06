@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+li a {cursor: pointer;}
+li a span{cursor: pointer;}
+</style>
+	<title>Scholastic Writing Awards</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/Normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+<!--  	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+--> 	
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+
+<!-- tkd start -->
+   	<script type="text/javascript" src="lib/angular/angular.js"></script>
+  	<script type="text/javascript" src="lib/angular/angular-touch.min.js"></script>
+  	<script type="text/javascript" src="lib/angular/angular-route.js"></script>
+  	<script type="text/javascript" src="lib/angular/angular-sanitize.js"></script>
+  	<script type="text/javascript" src="lib/dialog/dialog-service.js"></script>
+  	<script type="text/javascript" src="lib/dialog/filesaver.min.js"></script> 
+    <script type="text/javascript" src="lib/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+   	<script type="text/javascript" src="lib/security/security-app.js"></script>
+  	<script type="text/javascript" src="lib/security/interceptor.js"></script> 
+
+   	<script type="text/javascript" src="data/footerLinks.json"></script>
+   	<script type="text/javascript" src="data/headerLinks.json"></script>
+   	<script type="text/javascript" src="data/staticLinks.json"></script>
+   	<script type="text/javascript" src="data/enrollLinks.json"></script>
+   	<script type="text/javascript" src="data/banners.json"></script>
+   	<script type="text/javascript" src="data/winners.json"></script>
+   	<script type="text/javascript" src="data/app.json"></script>
+
+    <script type="text/javascript" src="ajs/app.js"></script>
+  	<script type="text/javascript" src="ajs/controllers.js"></script>
+  	<script type="text/javascript" src="ajs/services.js"></script>
+  	<script type="text/javascript" src="ajs/dates.js"></script>
+<!-- tkd start -->
+</head>
+<body ng-app="SWAApp">
+	<nav class=" navbar navbar-default alignMain headerBg" role="navigation">
+		<div class="container" style="padding-left: 60px; padding-right: 60px;">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+	            <button type="button" data-target="#navbarcollapse" data-toggle="collapse" class="navbar-toggle">
+	            	<span class="sr-only">Toggle navigation</span>
+	               	<span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+				<a href="http://scholastic.co.in" target="_blank"><div class="brandLogo"></div></a>
+				<span class="india">India</span>
+            </div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div id="navbarcollapse" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav alignCent" ng-controller="HeaderController">
+					<li class="" ng-repeat="headerLink in headerLinks"><a href="{{headerLink.url}}" target="_blank">{{headerLink.text}}</a></li>
+					<!-- <li class="customBorder"></li> -->
+				</ul>
+				<ul class="nav navbar-nav navbar-right" ng-hide="$root.loggedInUser.isLoggedIn">
+					<li ng-hide="$root.regExpired"><a href="#/enroll">Register</a></li>
+					<!-- <li class="customBorder"></li> -->
+					<li><a href="#/login"><span class="glyphicon glyphicon-lock"></span>&nbsp;Login</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" ng-show="$root.loggedInUser.isLoggedIn">
+					<li><a href="#/logout"><span class="glyphicon-logout"></span> <span>Hi {{$root.loggedInUser.user.fullName}}</span></a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="container" style="padding-left: 60px; padding-right: 60px;">
+		<!-- search begin -->
+		<div class="row" style="margin-bottom: 20px;">
+			<div class="schLogo pull-left"></div>
+			<form class="navbar-form navbar-right col-md-12" role="search" style="margin-top: 25px;">
+				<div class="form-group" ng-controller="SearchController">
+					<input type="text" class="form-control borderRadius20" placeholder="Search the site" ng-model="searchText">
+					<button type="button" class="btn buttonDecor btn-default glyphicon glyphicon-search" ng-click="serachSCH()"></button>
+				</div>
+			</form>
+		</div>
+		<!-- search end -->
+		<div class="row">	
+			<nav class="navbar navbar-default col-sm-6 col-md-12" role="navigation" style="padding: 0; border-radius: 10px;">
+				<div class="blue">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header" style=" border-right: 1px solid #20709e;">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse2">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						
+						<a class="blankcss navbar-brand defaultbackgrnd" ng-controller="HomeController" ng-click="goHome()">
+						<span class="glyphicon homeIcon " style="cursor: pointer;"></span></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="navbarCollapse2">
+						<ul class="nav navbar-nav customTextColor" ng-controller="StaticController">
+							<li ng-repeat="staticLink in staticLinks"><a ng-click="showStaticContent(staticLink.code)">{{staticLink.text}}</a></li>
+							<li>
+								<ul class="nav nav-tabs boldWeight" style="border-bottom: medium none;white-space: nowrap;">
+									<li class="blankcss" ng-hide="$root.loggedInUser.isLoggedIn"><a style="height: 50px; padding-top: 14px;" data-toggle="tab" href="#/story">Submit Your Story</a></li>
+									<li class="blankcss" ng-show="$root.loggedInUser.isLoggedIn"><a style="height: 50px; padding-top: 14px;" data-toggle="tab" href="{{$root.loggedInUser.activity.menu.link}}">{{$root.loggedInUser.activity.menu.button}}</a></li>
+									<li class="blankcss"><a style="height: 50px;border-right: medium none; padding-top: 14px;" data-toggle="tab" href="#/contact">Contact Us</a></li>
+								</ul>
+							</li>
+ 						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+		<!-- main view -->		
+		<ng-view></ng-view>
+	</div>
+	<footer id="footerContent" class="bgfooter  col-xs-12" ng-controller="FooterController">
+		<div class="container borderBottom" style="margin-left: 110px;">
+			<ul class="list-group col-md-offset-1 col-sm-6 col-md-2 pull-left footerMargin {{footerLink.class}}" ng-repeat="footerLink in footerLinks">
+				<li style="list-style: none;" ><h5>{{footerLink.header}}</h5></li>
+				<li ng-repeat="link in footerLink.links" style="white-space: nowrap;font-size: 12px;">
+					<a ng-show="link.url" href="{{link.url}}" target="_blank"><span>{{link.text}}</span></a>
+					<span ng-hide="link.url">{{link.text}} <a style="margin-right: 5px;" ng-repeat="icon in link.icons" href="{{icon.url}}" target="_blank"><img src="images/{{icon.src}}" height="25px" border="0" sty/></a></span>
+				</li>
+			</ul>
+		</div>
+		<div class="row footerPrivacyPatchColor" style="padding-top: 10px;">
+			<label class="text-center col-md-12 " style="Display: block;">
+				<span style="color: #1d72a6; font-size: 15px;"><a href='http://www.scholastic.com/privacy.htm' target="_blank">Privacy Policy</a></span> . <span style="color: #1d72a6; font-size: 13px;"><a href='http://www.scholastic.com/terms.htm' target="_blank">Term of Use</a></span> . <span style="color: #626262; font-size: 11px;">TM &#174; &  &#169; 2014, 2012 Scholastic Inc. All Rights Reserved</span>
+			</label>
+			<div>
+			</div>
+		</div>
+	</footer>
+	
+<script type="text/javascript">
+<!--
+$(document).ready( function() {
+    $('.blankcss').on('click','a', function() {
+    	$(".unselect").removeClass("unselect");
+    	$(".defaultbackgrnd").removeClass("defaultbackgrnd");
+    	$('.blankcss').removeClass("active");
+    	$(this).addClass("unselect");
+    	$(this).parent().addClass("active");
+    });
+    $('.navbar-brand').on('click', function() {
+    	$(".unselect").removeClass("unselect");
+    	$('.blankcss').removeClass("active");
+    	$(this).addClass("defaultbackgrnd");
+    	$(this).addClass("active");
+    });
+});
+//-->
+</script> 
+</body>
+</html>
+
+

@@ -1,0 +1,3 @@
+#foreach( $swa in $swaTemplate )
+Story Ranking Period Started!
+#end

@@ -1,0 +1,3 @@
+ #foreach( $swa in $swaTemplate )
+Thank You for Participating in Scholastic Writing Awards 
+#end

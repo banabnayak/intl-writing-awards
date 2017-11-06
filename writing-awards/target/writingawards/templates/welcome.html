@@ -1,0 +1,28 @@
+<div class="col-md-4 formContainer {{$root.activity.styleClass}} " style="padding: 0" id="wLogo">
+	<div class="">
+		<h4 class="startStoryCont">{{$root.activity.header}}</h4>
+		<h4 class="startStoryContSub" ng-bind-html="$root.activity.subheader" ng-show="$root.activity.subheader"></h4>
+		<p class="paragraphAlignAfter" ng-bind-html="$root.activity.description" ng-show="$root.activity.description"></p>
+		<h4 class="text-center boldWeight" ng-show="$root.activity.summary">{{$root.activity.summary}}</h4>
+	</div>
+	<div style=" width: 140px; margin: 0 auto;">
+		<a href="{{$root.activity.page.link}}"  class="btn btn-default text-center buttonDecor" ng-show="$root.activity.page.button">{{$root.activity.page.button}}</a>
+	</div>		
+</div>
+
+<script type="text/javascript">
+<!--
+ $(document).ready(function(){
+ 	$('.paragraphAlignAfter').on('click','div.revLink', function(e){
+		var domElement = $(this);
+		var index = domElement.attr('index');
+ 		//alert('Index='+index);	
+		var $scope = angular.element(domElement).scope();
+		domElement.append('<any class="revloading">Loading...</any>');
+ 		//$scope.$apply(function(){
+	    $scope.reviewStory(index);
+	    //});  
+ 	}); 
+}); 
+//-->
+</script> 

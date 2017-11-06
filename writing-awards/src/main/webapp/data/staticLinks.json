@@ -1,0 +1,5 @@
+var staticLinks = [
+    {code : 0, text : 'About', title : 'About Scholastic Writing Awards', url : 'http://scholastic.co.in/en/articles/scholastic-writing-awards'},	
+	{code : 1, text : 'How to Participate', title : 'How to Participate in Scholastic Writing Awards', url : 'http://scholastic.co.in/en/articles/guidelines-rules-and-procedure-scholastic-writing-awards'},
+	{code : 2, text : 'Writing Tips', title : 'How to Write a Story', url : 'http://scholastic.co.in/en/articles/writing-tips'}
+];	

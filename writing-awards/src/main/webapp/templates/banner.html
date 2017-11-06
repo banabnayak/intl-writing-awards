@@ -1,0 +1,24 @@
+<!-- banner begin -->
+<div class="col-md-8" style="padding-left: 0;">
+	<div class="carousel carouselID">
+		<div class="carousel-inner" style=" border-radius: 5px;">
+			<div class="item active" ng-controller="BannerController">
+		    <carousel interval="interval">
+		      <slide ng-repeat="banner in banners" active="banner.active">
+		        <img ng-src="images/{{banner.image}}" style="margin:auto;">
+				<div class="carousel-caption" style="right: 2%; bottom: -4%;">
+					<a href="#/enroll" class="btn btn-default pull-right buttonDecor" ng-hide="$root.loggedInUser.isLoggedIn || $root.regExpired">Register</a>
+				</div>
+		      </slide>
+		    </carousel>
+			</div>
+		</div>	
+	</div>
+</div>
+<!-- banner end -->			
+			
+			
+			
+
+
+			
